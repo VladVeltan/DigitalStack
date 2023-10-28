@@ -65,6 +65,22 @@ class LinkedList {
         }
         System.out.println(current.data);
     }
+    public Node findMiddleOptimal(){
+        if(head==null){
+            return null;
+        }
+
+        Node slowPointer=head;
+        Node fastPointer=head;
+
+        while(fastPointer !=null && fastPointer.next !=null)
+        {
+            slowPointer=slowPointer.next;
+            fastPointer=fastPointer.next.next;
+        }
+        return slowPointer;
+
+    }
 }
 
 public class W05_LinkedList {
@@ -78,10 +94,13 @@ public class W05_LinkedList {
 
         linkedList.add(6);
         linkedList.findMiddle();
+        System.out.println(linkedList.findMiddleOptimal().data);
         linkedList.add(8);
 
         linkedList.display();
         linkedList.findMiddle();
+
+        System.out.println(linkedList.findMiddleOptimal().data);
 
 
     }
